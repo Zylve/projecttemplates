@@ -30,6 +30,9 @@ void Arguments::CollectArgs() {
         ("delete,d", opt::value<std::string>(), "Delete a template")
         ("type,t", opt::value<std::string>(), "Specify template")
         ("new,n", opt::value<std::string>(), "Specify project name")
+        ("bzip,b", "Use bzip2 compression")
+        ("gzip,g", "Use gzip compression (default)")
+        ("xz,x", "Use xz compression")
     ;
 
     opt::store(

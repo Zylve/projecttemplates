@@ -4,11 +4,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED, ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ..)
 add_compile_options(--config ../.vscode/clang.cfg)
-include(GNUInstallDirs)
 
 get_filename_component(ProjectId ${CMAKE_CURRENT_LIST_DIR} NAME)
 string(REPLACE " " "_" ProjectId ${ProjectId})
 project(${ProjectId} C CXX)
+include(GNUInstallDirs)
 
 find_package(Boost COMPONENTS program_options REQUIRED)
 find_package(LibArchive REQUIRED)

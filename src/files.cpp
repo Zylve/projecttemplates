@@ -59,7 +59,7 @@ void Files::Delete(std::string* path) {
     fs::remove(*path);
 
     if(fs::is_directory(*path)) {
-        for(const fs::directory_entry& it : fs::recursive_directory_iterator(*path)) {
+        for(const fs::directory_entry &it : fs::recursive_directory_iterator(*path)) {
             fs::remove(it);
         }
     }
@@ -110,7 +110,14 @@ void Files::CompressArchive() {
     a = archive_write_new();
     time(&now);
 
-    archive_write_add_filter_gzip(a);
+    if(Arguments::vm.count("bzip")) {
+        archive_write_add_filter_bzip2(a);
+    } else if(Arguments::vm.count("xz")) {
+        archive_write_add_filter_xz(a);
+    } else {
+        archive_write_add_filter_gzip(a);
+    }
+
     archive_write_set_format_gnutar(a);
     archive_write_open_filename(a, "temp.pt");
 
@@ -163,8 +170,9 @@ void Files::ExtractArchive() {
     flags |= ARCHIVE_EXTRACT_FFLAGS;
 
     a = archive_read_new();
-    archive_read_support_format_gnutar(a);
-    archive_read_support_filter_gzip(a);
+    archive_read_support_format_all(a);
+    archive_read_support_filter_all(a);
+
     out = archive_write_disk_new();
     archive_write_disk_set_options(out, flags);
     archive_write_disk_set_standard_lookup(out);
