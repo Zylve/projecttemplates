@@ -31,7 +31,7 @@ If a `setup.sh` is found within the top level of the project then the program wi
  - Boost Program Options
  - LibArchive
 
-### Instructions
+### Installation instructions
 ```bash
 git clone https://github.com/Zylve/projecttemplates.git
 cd projecttemplates
