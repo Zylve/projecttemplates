@@ -121,11 +121,9 @@ void Arguments::ExecArgs() {
             std::string pt = path + ".pt";
             Files::Delete(&pt);
 
-            std::string script = Arguments::vm["new"].as<std::string>() + "/setup.sh";
-
-            if(!Arguments::vm.count("skip-exec") && std::filesystem::exists(script)) {
+            if(!Arguments::vm.count("skip-exec") && std::filesystem::exists(Arguments::vm["new"].as<std::string>() + "/setup.sh")) {
                 Verbose::SendMessage("Executing setup.sh\n");
-                std::string com = "sh "+ script;
+                std::string com = "cd " + Arguments::vm["new"].as<std::string>() + " && sh setup.sh";
                 system(com.c_str());
             }
         }
