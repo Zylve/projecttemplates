@@ -14,6 +14,11 @@ std::string Main::HomeDir;
 std::string Main::StoreDir;
 
 int main(int argc, const char* argv[]) {
+    if(argc == 1) {
+        printf("No options specified! Use %s --help to view the help menu\n", argv[0]);
+        return 1;
+    }
+
     Main::argc = argc;
     Main::argv = argv;
 
