@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.14)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED, ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ..)
+add_compile_options(--config ../.vscode/clang.cfg)
+
+get_filename_component(ProjectId ${CMAKE_CURRENT_LIST_DIR} NAME)
+string(REPLACE " " "_" ProjectId ${ProjectId})
+project(${ProjectId} C CXX)
+
+find_package(Boost COMPONENTS program_options REQUIRED)
+find_package(LibArchive REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS} ${LibArchive_INCLUDE_DIRS})
+
+MESSAGE(STATUS "CMAKE_C_COMPILER = ${CMAKE_C_COMPILER}.")
+MESSAGE(STATUS "CMAKE_CXX_COMPILER = ${CMAKE_CXX_COMPILER}.")
+MESSAGE(STATUS "")
+MESSAGE(STATUS "Boost_DIR = ${Boost_DIR}.")
+MESSAGE(STATUS "Boost_INCLUDE_DIRS = ${Boost_INCLUDE_DIRS}.")
+MESSAGE(STATUS "Boost_LIBRARIES = ${Boost_LIBRARIES}.")
+MESSAGE(STATUS "Boost_LIB_VERSION = ${Boost_LIB_VERSION}.")
+MESSAGE(STATUS "")
+MESSAGE(STATUS "LibArchive_INCLUDE_DIRS = ${LibArchive_INCLUDE_DIRS}.")
+MESSAGE(STATUS "LibArchive_LIBRARIES = ${LibArchive_LIBRARIES}.")
+MESSAGE(STATUS "LibArchive_VERSION = ${LibArchive_VERSION}.")
+
+file(GLOB_RECURSE SRC src/*.cpp)
+add_executable(${ProjectId} ${SRC})
+
+target_include_directories(${ProjectId} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include PUBLIC ${Boost_INCLUDE_DIR})
+target_link_libraries(${ProjectId} ${Boost_LIBRARIES} ${LibArchive_LIBRARIES})

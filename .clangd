@@ -1,0 +1,80 @@
+Diagnostics:
+    Suppress: [
+        -Wexit-time-destructors,
+        -Wglobal-constructors,
+        -Wold-style-cast,
+        -Wshorten-64-to-32,
+        -Wsign-compare,
+        -Wsign-conversion
+    ]
+
+    ClangTidy:
+        Add: "*"
+        Remove: [
+            misc-definitions-in-headers,
+            readability-const-return-type,
+            readability-convert-member-functions-to-static,
+            llvmlibc-restrict-system-libc-headers,
+            cppcoreguidelines-init-variables,
+            readability-implicit-bool-conversion,
+            modernize*,
+            hicpp-deprecated-headers,
+            llvmlibc-implementation-in-namespace,
+            google*,
+            cppcoreguidelines-pro-bounds-pointer-arithmetic,
+            cppcoreguidelines-pro-type-vararg,
+            hicpp-vararg,
+            hicpp-avoid-c-arrays,
+            cppcoreguidelines-avoid-c-arrays,
+            concurrency-mt-unsafe,
+            cert-err34-c,
+            readability-identifier-length,
+            altera-unroll-loops,
+            altera-id-dependent-backward-branch,
+            misc-non-private-member-variables-in-classes,
+            llvmlibc-callee-namespace,
+            cppcoreguidelines-avoid-magic-numbers,
+            hicpp-no-array-decay,
+            readability-magic-numbers,
+            cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+            cppcoreguidelines-pro-bounds-constant-array-index,
+            hicpp-no-malloc,
+            cppcoreguidelines-no-malloc,
+            cppcoreguidelines-owning-memory,
+            cppcoreguidelines-special-member-functions,
+            hicpp-special-member-functions,
+            hicpp-use-auto,
+            cppcoreguidelines-avoid-non-const-global-variables,
+            cert-msc30-c,
+            cert-msc50-cpp,
+            cert-env33-c,
+            cert-err58-cpp,
+            fuchsia-default-arguments-calls,
+            fuchsia-statically-constructed-objects,
+            hicpp-signed-bitwise,
+            cppcoreguidelines-interfaces-global-init,
+            cppcoreguidelines-macro-usage,
+            cppcoreguidelines-pro-type-cstyle-cast,
+            bugprone-easily-swappable-parameters,
+            bugprone-narrowing-conversions,
+            cppcoreguidelines-narrowing-conversions,
+            cert-err33-c,
+            cppcoreguidelines-pro-type-member-init,
+            hicpp-member-init,
+            misc-unused-parameters,
+            android-cloexec-fopen,
+            readability-function-cognitive-complexity,
+        ]
+
+        CheckOptions:
+            readability-braces-around-statements: 0
+
+            # Naming conventions
+            readability-identifier-naming.ClassCase: CamelCase
+            readability-identifier-naming.MethodCase: CamelCase
+            readability-identifier-naming.FunctionCase: CamelCase
+            readability-identifier-naming.LocalVariableCase: camelBack
+            readability-identifier-naming.VariableCase: CamelCase
+            readability-identifier-naming.StructCase: CamelCase
+            readability-identifier-naming.PrivateMemberCase: camelBack
+            readability-identifier-naming.GlobalVariableCase: aNy_CasE

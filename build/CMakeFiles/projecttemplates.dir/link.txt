@@ -1,0 +1,1 @@
+/usr/bin/clang++ CMakeFiles/projecttemplates.dir/src/arguments.cpp.o CMakeFiles/projecttemplates.dir/src/files.cpp.o CMakeFiles/projecttemplates.dir/src/main.cpp.o CMakeFiles/projecttemplates.dir/src/verbose.cpp.o -o /home/vuk/projects/ccpp/projecttemplates/projecttemplates  /usr/lib/libboost_program_options.so.1.80.0 /usr/lib/libarchive.so 

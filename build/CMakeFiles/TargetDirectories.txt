@@ -1,0 +1,3 @@
+/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/projecttemplates.dir
+/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/edit_cache.dir
+/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/rebuild_cache.dir
