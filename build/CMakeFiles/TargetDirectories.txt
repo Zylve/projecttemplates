@@ -1,7 +1,0 @@
-/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/pt.dir
-/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/edit_cache.dir
-/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/rebuild_cache.dir
-/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/list_install_components.dir
-/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/install.dir
-/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/install/local.dir
-/home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles/install/strip.dir
