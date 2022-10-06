@@ -1,26 +1,26 @@
 # Project Templates
 A simple program to manage project templates
 ## Usage
-Basic usage is shown below. For more options use `./projecttemplates -h`
+Basic usage is shown below. For more options use `./pt -h`
 
 Creating a template of the current working directory:
 ```bash
-projecttemplates -c <name>
+pt -c <name>
 ```
 
 Deleting a template:
 ```bash
-projecttemplates -d <name>
+pt -d <name>
 ```
 
 Creating a new project with a template (project is creating in `./<project-name>/`):
 ```bash
-projecttemplates -t <template-name> -n <project-name>
+pt -t <template-name> -n <project-name>
 ```
 
 Listing available templates:
 ```bash
-projecttempaltes -l
+pt -l
 ```
 
 ### Scripts
@@ -36,5 +36,5 @@ If a `setup.sh` is found within the top level of the project then the program wi
 git clone https://github.com/Zylve/projecttemplates.git
 cd projecttemplates
 cmake -B build
-make -C build
+sudo make install -C build 
 ```

@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED, ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ..)
 add_compile_options(--config ../.vscode/clang.cfg)
+include(GNUInstallDirs)
 
 get_filename_component(ProjectId ${CMAKE_CURRENT_LIST_DIR} NAME)
 string(REPLACE " " "_" ProjectId ${ProjectId})
@@ -26,7 +27,9 @@ MESSAGE(STATUS "LibArchive_LIBRARIES = ${LibArchive_LIBRARIES}.")
 MESSAGE(STATUS "LibArchive_VERSION = ${LibArchive_VERSION}.")
 
 file(GLOB_RECURSE SRC src/*.cpp)
-add_executable(${ProjectId} ${SRC})
+add_executable(pt ${SRC})
 
-target_include_directories(${ProjectId} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include PUBLIC ${Boost_INCLUDE_DIR})
-target_link_libraries(${ProjectId} ${Boost_LIBRARIES} ${LibArchive_LIBRARIES})
+target_include_directories(pt PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include PUBLIC ${Boost_INCLUDE_DIR})
+target_link_libraries(pt ${Boost_LIBRARIES} ${LibArchive_LIBRARIES})
+
+install(TARGETS pt)

@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/vuk/projects/ccpp/projecttemplates/build/CMakeFiles /home/vuk/projects/ccpp/projecttemplates/build//CMakeFiles/progress.marks
@@ -117,24 +162,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named projecttemplates
+# Target rules for targets named pt
 
 # Build rule for target.
-projecttemplates: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 projecttemplates
-.PHONY : projecttemplates
+pt: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pt
+.PHONY : pt
 
 # fast build rule for target.
-projecttemplates/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/build
-.PHONY : projecttemplates/fast
+pt/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/build
+.PHONY : pt/fast
 
 src/arguments.o: src/arguments.cpp.o
 .PHONY : src/arguments.o
 
 # target to build an object file
 src/arguments.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/arguments.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/arguments.cpp.o
 .PHONY : src/arguments.cpp.o
 
 src/arguments.i: src/arguments.cpp.i
@@ -142,7 +187,7 @@ src/arguments.i: src/arguments.cpp.i
 
 # target to preprocess a source file
 src/arguments.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/arguments.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/arguments.cpp.i
 .PHONY : src/arguments.cpp.i
 
 src/arguments.s: src/arguments.cpp.s
@@ -150,7 +195,7 @@ src/arguments.s: src/arguments.cpp.s
 
 # target to generate assembly for a file
 src/arguments.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/arguments.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/arguments.cpp.s
 .PHONY : src/arguments.cpp.s
 
 src/files.o: src/files.cpp.o
@@ -158,7 +203,7 @@ src/files.o: src/files.cpp.o
 
 # target to build an object file
 src/files.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/files.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/files.cpp.o
 .PHONY : src/files.cpp.o
 
 src/files.i: src/files.cpp.i
@@ -166,7 +211,7 @@ src/files.i: src/files.cpp.i
 
 # target to preprocess a source file
 src/files.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/files.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/files.cpp.i
 .PHONY : src/files.cpp.i
 
 src/files.s: src/files.cpp.s
@@ -174,7 +219,7 @@ src/files.s: src/files.cpp.s
 
 # target to generate assembly for a file
 src/files.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/files.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/files.cpp.s
 .PHONY : src/files.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -182,7 +227,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -190,7 +235,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -198,7 +243,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/verbose.o: src/verbose.cpp.o
@@ -206,7 +251,7 @@ src/verbose.o: src/verbose.cpp.o
 
 # target to build an object file
 src/verbose.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/verbose.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/verbose.cpp.o
 .PHONY : src/verbose.cpp.o
 
 src/verbose.i: src/verbose.cpp.i
@@ -214,7 +259,7 @@ src/verbose.i: src/verbose.cpp.i
 
 # target to preprocess a source file
 src/verbose.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/verbose.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/verbose.cpp.i
 .PHONY : src/verbose.cpp.i
 
 src/verbose.s: src/verbose.cpp.s
@@ -222,7 +267,7 @@ src/verbose.s: src/verbose.cpp.s
 
 # target to generate assembly for a file
 src/verbose.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/projecttemplates.dir/build.make CMakeFiles/projecttemplates.dir/src/verbose.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pt.dir/build.make CMakeFiles/pt.dir/src/verbose.cpp.s
 .PHONY : src/verbose.cpp.s
 
 # Help Target
@@ -232,8 +277,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... projecttemplates"
+	@echo "... pt"
 	@echo "... src/arguments.o"
 	@echo "... src/arguments.i"
 	@echo "... src/arguments.s"

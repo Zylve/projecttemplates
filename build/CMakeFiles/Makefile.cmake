@@ -37,6 +37,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake/Modules/FindLibArchive.cmake"
   "/usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake/Modules/FindPackageMessage.cmake"
+  "/usr/share/cmake/Modules/GNUInstallDirs.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake"
   "/usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake"
@@ -59,5 +60,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/projecttemplates.dir/DependInfo.cmake"
+  "CMakeFiles/pt.dir/DependInfo.cmake"
   )
